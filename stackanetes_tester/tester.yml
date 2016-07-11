@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: stackanetes
+  labels:
+    app: stackanetes-tester
+  name: stackanetes-tester
+spec:
+  restartPolicy: OnFailure
+  containers:
+  - name: stackanetes-tester
+    #insert a valid image name
+    imagePullPolicy: Always
+    image: 10.91.96.87:5000/stackanetes_tester
+    env:
+    - name: INTERFACE_NAME
+      value: "eno2" #name of physical interface for compute-node
+    - name: DOCKER_REGISTRY
+      value: "10.91.96.87:5000"
+    - name: IMAGE_VERSION
+      value: "barcelona"
+    - name: REPO_NAME
+      value: "mateusz-blaszkowski"
+    - name: BRANCH_NAME
+      value: "searchlight"
+    - name: CEPH_MONS
+      value: ""
+    - name: CEPH_ADMIN_KEYRING
+      value: ""
+    - name: CEPH_ENABLED
+      value: "false"

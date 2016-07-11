@@ -1,0 +1,7 @@
+Add coreOS iso to this directory.
+Name iso file as coreos.iso.
+Build docker.
+Push it to repository. Image should be available for at least one node in cluster.
+Adjust variables in tester.yml
+Run pod via using "kubectl create -f tester.yml"
+
